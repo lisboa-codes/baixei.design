@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="pt_BR">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="designer, design, logo, marketing, download, psd, grátis, baixar, download, imagem" />
+    <meta name="description" content="Recursos gráficos para turbinar seus projetos" />
+    <meta name="google-site-verification" content="6sGDKAsCrjuBedJ1adpLPDnPrbhDqKj0QRmx0pRyfGg" />
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="1 days">
+    <meta name="resource-type" content="document">
+    <meta name="distribution" content="global">
+    <meta name="rating" content="general">
+    <meta name="copyright" content="Copyright(c) 2022 - BAIXEI.DESIGN">
+    <meta name="language" content="pt-br">
+    <meta name="verification" content="" />
+    <meta name="apple-itunes-app" content="">
+    <meta name="google-play-app" content="app-id=club.baixeidesign.aplicativo">
+    <link rel="icon" href="https://i.imgur.com/t5hNat7.png" type="image/x-icon"/>
+
+    <!-- CSS -->
+    <title>Baixei.Design - Recursos gráficos para turbinar seus projetos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.fcf5c531.chunk.css" type="text/css" media="all">
+     <link rel="stylesheet" href="style.css" type="text/css" media="all">
+
+    <style>
+        #myInput {
+            width: 50%;
+            /* Full-width */
+            font-size: 16px;
+            /* Increase font-size */
+            padding: 12px 20px 12px 40px;
+            /* Add some padding */
+            border: 1px solid #ddd;
+            /* Add a grey border */
+        }
+        
+        #myTable {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body class="light">
+
+ 
+       <center><br><br><img width="450" src="logo.png">
+        <br><br><input type="text" class="form-control" id="myInput" onkeyup="myFunction()" placeholder="Procurar arquivo...">
+         <div class="col" id="app"></div>
+
+</center>
+
+
+    <!-- script -->
+    <script src='https://unpkg.com/react@15.0.1/dist/react.js'></script>
+    <script src='https://unpkg.com/react-dom@15.0.1/dist/react-dom.js'></script>
+    <script src='https://cdn.firebase.com/js/client/2.4.2/firebase.js'></script>
+    <script src='https://cdn.firebase.com/libs/reactfire/0.6.0/reactfire.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/showdown/1.3.0/showdown.js'></script>
+
+    <script>
+        function myFunction() {
+            // Declare variables
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.querySelectorAll(".card");
+            if (filter.length > 0) {
+                table.style.display = 'block';
+            } else {
+                table.style.display = 'none';
+            }
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByClassName("td-search")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+        let firebaseRef = new Firebase("https://baixei-design-default-rtdb.firebaseio.com/busca");
+        let Accord = React.createClass({
+            displayName: "AddAccord",
+            mixins: [ReactFireMixin],
+
+            getInitialState: function() {
+                return {
+                    items: []
+                };
+
+            },
+
+            componentWillMount: function() {
+                this.bindAsArray(firebaseRef, "items");
+            },
+
+            statics: {
+                handleClick: function(e) {
+                    e.target.classList.toggle("active");
+                },
+
+                rawMarkup: function(text) {
+                    var rawMarkup = text;
+                    return {
+                        __html: rawMarkup
+                    };
+                }
+            },
+            render: function() {
+                let self = this,
+                    items = this.state.items,
+                    accordNodes = items.map(function(item, i) {
+                        return (
+                            React.createElement("div", {
+                                    className: 'card',
+                                    key: i
+                                },
+                                React.createElement("a", {
+                                    href: item.link,
+                                    className: "",
+                                    target: "_blank"
+                                }, React.createElement("img", {
+                                    src: item.capa,
+                                    className: "card-img-top"
+                                }, null)),
+
+                                React.createElement("div", {
+                                        src: item.capa,
+                                        className: "card-body"
+                                    }, React.createElement("h2", {
+                                        className: "titulo td-search"
+                                    }, item.titulo),
+                                    React.createElement("p", {
+                                        className: "card-text"
+                                    }, item.sinopse), React.createElement("a", {
+                                        href: item.link,
+                                        className: "btn btn-primary",
+                                        target: "_blank"
+                                    }, 'Acessar Conteúdo'), null),
+
+                                React.createElement("td", {
+                                    className: "url"
+                                }, ),
+                            ));
+                    });
+                return (
+                    React.createElement("div", {
+                            id: "myTable",
+                            className: "lkt-cards"
+                        },
+                        React.createElement("div", {
+                                className: "lkt-content"
+                            },
+                            accordNodes
+                        )));
+            }
+        });
+        ReactDOM.render(
+            React.createElement(Accord, null),
+            document.getElementById('app'));
+        // INPUT COMPONENT
+        let AddAccord = React.createClass({
+            displayName: "AddAccord",
+            submitForm: function() {
+                let cat_cod = document.getElementById("cat_cod").value;
+                let link_link = document.getElementById("link_link").value;
+                let url_capa = document.getElementById("url_capa").value;
+                let cat_nome = document.getElementById("cat_nome").value;
+                let cat_descr = document.getElementById("cat_descr").value;
+                cat_descr = cat_descr.replace(/\r?\n/g, '<br />');
+                if (cat_nome != "" && cat_descr != "") {
+                    firebaseRef.push({
+                        cod: cat_cod,
+                        descr: cat_descr,
+                        helpfulCount: 0,
+                        capa: url_capa,
+                        titulo: cat_nome,
+                        link: link_link
+                    });
+                    document.getElementById("cat_cod").value = "";
+                    document.getElementById("link_link").value = "";
+                    document.getElementById("url_capa").value = "";
+                    document.getElementById("cat_nome").value = "";
+                    document.getElementById("cat_descr").value = "";
+                }
+            },
+            updateOutput: function() {
+                var input = document.getElementById("cat_nome");
+                var output = document.getElementById("form-output");
+                output.innerHTML = input.value;
+            },
+            render: function() {
+                return (
+                    React.createElement("form", null,
+
+                        React.createElement("output", {
+                            id: "form-output"
+                        })));
+            }
+        });
+        ReactDOM.render(
+            React.createElement("div", {
+                    className: "add-accord"
+                },
+                React.createElement(AddAccord, null)),
+            document.getElementById('input'));
+    </script>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/vue-material"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+</body>
+
+</html>

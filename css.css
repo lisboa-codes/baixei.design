@@ -1,0 +1,133 @@
+nav .navBtn {
+  margin-right: 4px;
+  width: 100px;
+  border-right: 1px solid black;
+  padding: 1px 2px;
+  padding-right: 15px;
+  cursor: pointer;
+}
+.block {
+    width: 325px;
+    border: 1px solid #eeeeee85;
+    margin: 0px auto;
+    margin-top: 200px;
+    padding: 20px;
+  }
+  .block h3 {
+    margin-bottom: 22px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .block #loginBtn {
+    width: 40%;
+    display: inline-block;
+    margin-top: 8px;
+    margin-right: 32px;
+  }
+  .block a {
+    font-size: 15px;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .userInput {
+    display: block;
+    width: 95%;
+    height: 24px;
+    padding: 2%;
+    margin-bottom: 15px;
+    background: snow;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+           body {
+           background-image:url(https://i.imgur.com/ey8LmhJ.jpg);
+           background-repeat:repeat;
+           background-size:10%;
+           background-color:black;
+           text-align:center;
+           font-family:Share Tech Mono;
+           font-size:175%;
+           }
+           #second-body {
+           background-color:black;
+           }
+           .smaller-img {
+           width: 400px;
+           height: auto;
+           }
+           .smaller-img {
+           width: 300px;
+           height: auto;
+           }
+           .fuck {
+           color:red;
+           }
+           .evil {
+           color:red;
+           }
+           h1 {
+           font-size:400%;
+           }
+           h2 {
+           font-size:200%;
+           }
+           a {
+           color:black;
+           }
+           .logo {
+           width: 800px;
+           height: auto;
+           }
+           .logo {
+           width: 1920px;
+           height: auto;
+           }
+  
+           &.max{font-size:2.6rem}&.med{font-size:1.6rem}&.min{font-size:1.2rem}&.primary{background-color:#004666;border-color:#006899}&.secondary{background-color:#6e0c2f;border-color:#bd1550}&.tertiary{background-color:#447e69;border-color:#6ea079}&.disabled{background-color:#ddd;border-color:#999;cursor:not-allowed;color:#999}&.border{border-width:1px;border-style:solid}
+    .button{display:inline-block;font-size:2rem;line-height:1.5em;white-space:pre;padding:.35em 1em;text-decoration:none;transition:all 50ms linear;cursor:pointer;color:#f2f2f2!important;border-style:none}.button.super{font-size:3rem}.button.max{font-size:2.6rem}.button.med{font-size:1.6rem}.button.min{font-size:1.2rem}.button.primary{background-color:#004666;border-color:#006899}.button.primary:hover{background-color:#006899}.button.primary:active{background-color:#007db8}.button.secondary{background-color:#6e0c2f;border-color:#bd1550}.button.secondary:hover{background-color:#bd1550}.button.secondary:active{background-color:#dc185d}.button.tertiary{background-color:#447e69;border-color:#6ea079}.button.tertiary:hover{background-color:#6ea079}.button.tertiary:active{background-color:#96c087}.button.disabled{background-color:#ddd;border-color:#999;cursor:not-allowed;color:#999}.button.border{border-width:1px;border-style:solid}@media (max-width:800px){.button{text-align:center;width:100%;margin-bottom:1.5rem}}ul{list-style:none;padding:0}.accord{list-style:none;padding-left:0;font-size:1.6rem}.accord .head{position:relative;font-weight:700;padding:1.5rem;padding-right:4.5rem;border:1px solid #ddd;background-color:#fff;transition:all .2s ease;text-overflow:"…";color:#004666}.accord .head:after{font-family:'Material Icons';font-weight:400;font-style:normal;content:'\E884';display:block;position:absolute;right:1rem;top:1.5rem;font-size:1.5em}.accord .head:hover{color:#115f91;cursor:pointer}.accord .head+div{background:#222;color:#fff;margin-bottom:1.5rem;max-height:0;overflow:hidden;transition:all 50ms linear}.accord .head.active{background-color:#115f91;color:#fff;border:1px solid transparent}.accord .head.active:after{opacity:0}.accord .head.active+div{max-height:200vh;transition:all .3s ease-in-out}.accord .body{padding:1.5rem}input[type=text],textarea{width:100%;margin-bottom:.75rem;font-family:'Open Sans';padding:.5rem;font-size:1.6rem}textarea{height:10rem}output{display:block;margin-top:3rem}
+    #myInput {
+  background-image: url('https://i.imgur.com/E1XH3uO.png'); /* Add a search icon to input */
+  background-position: 10px 12px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 70%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+  }
+  #myTable {
+  display: none;
+  border-collapse: collapse; /* Collapse borders */
+  width: 100%; /* Full-width */
+  border: 1px solid #ddd; /* Add a grey border */
+  font-size: 18px; /* Increase font-size */
+  }
+  #myTable th, #myTable td {
+  text-align: left; /* Left-align text */
+  padding: 12px; /* Add padding */
+  }
+  #myTable tr {
+  /* Add a bottom border to all table rows */
+  border-bottom: 1px solid #ddd;
+  }
+  #myTable tr.header, #myTable  {
+  /* Add a grey background color to the table header and on hover */
+  background-color: #f1f1f1;
+  }
+  .print {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;          
+  }
+  .img-redable
+  {
+  width: 30px;
+  height: 30px;
+  }
+  table td img{height:70px;content: ''}
+  table td img::after{content: ''}
+  
